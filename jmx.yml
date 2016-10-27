@@ -1,0 +1,442 @@
+name: KafkaJmx
+version: 1.0
+enabled: true
+jmx:
+  - object_name: "kafka.controller:type=KafkaController,name=ActiveControllerCount"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.controller:type=KafkaController,name=OfflinePartitionsCount"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.controller:name=LeaderElectionRateAndTimeMs,type=ControllerStats"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.controller:name=UncleanLeaderElectionsPerSec,type=ControllerStats"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.controller:name=PreferredReplicaImbalanceCount,type=KafkaController"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:type=RequestChannel,processor=0,name=ResponseQueueSize"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:type=RequestChannel,processor=1,name=ResponseQueueSize"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:type=RequestChannel,name=RequestQueueSize"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:name=NetworkProcessorAvgIdlePercent,type=SocketServer"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:name=ResponsesBeingSent,type=SocketServer"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:name=ResponseQueueSize,type=RequestChannel"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:name=BrokerState,type=KafkaServer"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:name=BytesRejectedPerSec,type=BrokerTopicMetrics"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=BrokerTopicMetrics,name=BytesInPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=BrokerTopicMetrics,name=BytesOutPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=DelayedFetchRequestMetrics,name=ConsumerExpiresPerSecond"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=DelayedFetchRequestMetrics,name=FollowerExpiresPerSecond"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=DelayedProducerRequestMetrics,name=ExpiresPerSecond"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=FetchRequestPurgatory,name=NumDelayedRequests"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=FetchRequestPurgatory,name=PurgatorySize"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=ProducerRequestPurgatory,name=NumDelayedRequests"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=ProducerRequestPurgatory,name=PurgatorySize"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:clientId=Replica,name=MaxLag,type=ReplicaFetcherManager"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:clientId=Replica,name=MinFetchRate,type=ReplicaFetcherManager"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=ReplicaManager,name=LeaderCount"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=ReplicaManager,name=PartitionCount"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=ReplicaManager,name=UnderReplicatedPartitions"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=LocalTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.server:name=NumGroups,type=OffsetManager"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:name=NumOffsets,type=OffsetManager"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:name=RequestHandlerAvgIdlePercent,type=KafkaRequestHandlerPool"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RemoteTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestQueueTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=ConsumerMetadata"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=ControlledShutdown"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Fetch"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchConsumer"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=FetchFollower"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Heartbeat"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=JoinGroup"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=LeaderAndIsr"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Metadata"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=OffsetCommit"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=OffsetFetch"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Offsets"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=Produce"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=StopReplica"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=RequestsPerSec,request=UpdateMetadata"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseQueueTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=TotalTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=ConsumerMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=ControlledShutdown"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=Fetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=FetchConsumer"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=FetchFollower"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=Heartbeat"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=JoinGroup"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=LeaderAndIsr"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=Metadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=OffsetCommit"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=OffsetFetch"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=Offsets"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=Produce"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=StopReplica"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.network:type=RequestMetrics,name=ResponseSendTimeMs,request=UpdateMetadata"
+    metrics:
+      - attributes: 50thPercentile, Mean, StdDev, 75thPercentile, 95thPercentile, 98thPercentile, 99thPercentile, 999thPercentile, Count, Min, Max
+  - object_name: "kafka.server:type=BrokerTopicMetrics,name=MessagesInPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=BrokerTopicMetrics,name=FailedFetchRequestsPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=BrokerTopicMetrics,name=FailedProduceRequestsPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=ReplicaManager,name=IsrExpandsPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.server:type=ReplicaManager,name=IsrShrinksPerSec"
+    metrics:
+      - attributes: MeanRate, OneMinuteRate, FiveMinuteRate, FifteenMinuteRate, Count
+  - object_name: "kafka.controller:type=ControllerStats,name=LeaderElectionRateAndTimeMs"
+    metrics:
+      - attributes: LatencyUnit, RateUnit, Count
+  - object_name: "kafka.controller:type=ControllerStats,name=UncleanLeaderElectionsPerSec"
+    metrics:
+      - attributes: Count
+  - object_name: "kafka.network:type=SocketServer,name=NetworkProcessorAvgIdlePercent"
+    metrics:
+      - attributes: Value
+  - object_name: "kafka.server:type=KafkaRequestHandlerPool,name=RequestHandlerAvgIdlePercent"
+    metrics:
+      - attributes: Count, FifteenMinuteRate, FiveMinuteRate, MeanRate, OneMinuteRate
+  - object_name: "kafka.server:type=Produce"
+    metrics:
+      - attributes: queue-size
+  - object_name: "kafka.server:type=Fetch"
+    metrics:
+      - attributes: queue-size
