@@ -1,0 +1,14 @@
+name: igniteJmx
+version: 1.0
+enabled: true
+jmx:
+  - object_name: org.apache:clsLdr=*,group=Kernal,name=ClusterLocalNodeMetricsMXBeanImpl
+    metrics:
+      - attributes: TotalNodes, UpTime, TotalCpus, AverageJobExecuteTime, AverageActiveJobs, BusyTimePercentage, AverageJobWaitTime, AverageRejectedJobs, AverageJobWaitTime, AverageJobExecuteTime, AverageCpuLoad, AverageCancelledJobs
+  - object_name: org.apache:clsLdr=*,group=default,name=org.apache.ignite.internal.processors.cache.CacheClusterMetricsMXBeanImpl
+    metrics:
+      - attributes: AverageGetTime, CacheEvictions, CacheGets, CacheHitPercentage, CacheHits, CacheHitPercentage, CacheGets, CacheEvictions, AverageGetTime, AveragePutTime
+  - object_name: java.lang:type=GarbageCollector,name=*
+    metrics:
+      - attributes: CollectionCount, CollectionTime
+        type: simple      
